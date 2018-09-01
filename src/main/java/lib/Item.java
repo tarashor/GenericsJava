@@ -5,7 +5,11 @@ public class Item<T> {
         return value;
     }
 
-    private final T value;
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    private T value;
 
     public Item(T value) {
         this.value = value;

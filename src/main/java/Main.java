@@ -8,16 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
-    static <T> T pick(T a1, T a2) { return a2; }
 
-    public static double sum(List<Item<? extends Number>> items) {
-        double res = 0;
-        for (Item<? extends Number> item : items){
-            Number n = item.getValue();
-            res += n.doubleValue();
-        }
-        return res;
-    }
 
     public static void main(String[] args) {
 //        Number[] numbers = new Integer[10];
@@ -30,8 +21,12 @@ public class Main {
         BaseListOfItems<Item<Number>> items = new BaseListOfItems<>();
 
         Item<Number> zero = new Item<Number>(Integer.valueOf(0));
+
         Item<String> ten = new Item<>("");
         Item<Integer> twenty = new Item<>(20);
+        Item newTwenty = twenty;
+        newTwenty.setValue("asdasdasd");
+
         IntegerItem thirty = new IntegerItem(30);
 
         items.getItems().add(zero);
@@ -48,9 +43,21 @@ public class Main {
 //        System.out.println(baseItems);
     }
 
-    private static <V> void addItem(V v, BaseListOfItems<Item<V>> items) {
+    static <T> T pick(T a1, T a2) { return a2; }
 
+    private static <V> void addItem(V v, BaseListOfItems<Item<V>> items) {
         items.getItems().add(new Item<V>(v));
     }
+
+    static double sum(List<Item<? extends Number>> items) {
+        double res = 0;
+        for (Item<? extends Number> item : items){
+            Number n = item.getValue();
+            res += n.doubleValue();
+        }
+        return res;
+    }
+
+
 
 }
