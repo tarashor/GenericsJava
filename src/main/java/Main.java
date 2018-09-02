@@ -11,6 +11,8 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
 //        Number[] numbers = new Integer[10];
 //        numbers[0] = 20d;
 //        List<Integer> integersList = new ArrayList<>();
@@ -24,9 +26,6 @@ public class Main {
 
         Item<String> ten = new Item<>("");
         Item<Integer> twenty = new Item<>(20);
-        Item newTwenty = twenty;
-        newTwenty.setValue("asdasdasd");
-
         IntegerItem thirty = new IntegerItem(30);
 
         items.getItems().add(zero);
@@ -41,6 +40,12 @@ public class Main {
 //        List<Item> baseItems = new ArrayList<>();
 //        baseItems.addAll(items.getItems());
 //        System.out.println(baseItems);
+
+        Item twentyRaw = twenty;
+        twentyRaw.setValue("20");
+        String valueRaw = (String) twentyRaw.getValue();
+        Integer value = twenty.getValue();
+
     }
 
     static <T> T pick(T a1, T a2) { return a2; }
